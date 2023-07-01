@@ -6,6 +6,7 @@ namespace standing_desk_height {
 // Follows state machine implementation from UpLift
 // Uses information collected on FlexiSpot from https://github.com/Jolanrensen/LoctekMotion_IoT
 bool FlexiSpotE7Decoder::put(uint8_t b) {
+  ESP_LOGD("FELXISPOT E7 DECODER", "PUT");
   switch (state_) {
   case START:
     if (b == 0x9b) {
@@ -80,8 +81,10 @@ bool FlexiSpotE7Decoder::put(uint8_t b) {
   return false;
 }
 
-float FlexiSpotE7Decoder::decode() {
-  return (buf_[0] * 10) + buf_[1] + (buf_[2] / 10f));
+float FlexiSpotE7Decoder::decode() {  
+  float height = (buf_[0] * 10) + buf_[1] + (buf_[2] / 10f));
+  ESP_LOGD("FELXISPOT E7 DECODER", height);
+  return height
 }
 
 float FlexiSpotE7Decoder::DecodeDigit(uint8_t b) {
