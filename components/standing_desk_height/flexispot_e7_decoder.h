@@ -27,7 +27,7 @@ class FlexiSpotE7Decoder : public Decoder {
 
     bool put(uint8_t b);
     float decode();
-    uint8_t DecodeDigit(uint8_t b);
+    float DecodeDigit(uint8_t b);
 };
 
 }

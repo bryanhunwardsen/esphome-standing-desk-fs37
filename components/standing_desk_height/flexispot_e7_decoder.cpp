@@ -83,33 +83,33 @@ bool FlexiSpotE7Decoder::put(uint8_t b) {
 }
 
 float FlexiSpotE7Decoder::decode() {  
-  float height = (buf_[0] * 10) + buf_[1] + (buf_[2] / 10f));
+  float height = ((buf_[0] * 10) + buf_[1] + (buf_[2] / 10.0));
   // ESP_LOGV("FELXISPOT E7 DECODER", height);
-  return height
+  return height;
 }
 
-uint8_t FlexiSpotE7Decoder::DecodeDigit(uint8_t b) {
+float FlexiSpotE7Decoder::DecodeDigit(uint8_t b) {
   switch (b) {
   case 0x3f:
-      return 0f;
-  case 0x3f:
-      return 1f;
-  case 0x3f:
-      return 2f;
-  case 0x3f:
-      return 3f;
-  case 0x3f:
-      return 4f;
-  case 0x3f:
-      return 5f;
-  case 0x3f:
-      return 6f;
-  case 0x3f:
-      return 7f;
-  case 0x3f:
-      return 8f;
-  case 0x3f:
-      return 9f;
+      return 0.0;
+  case 0x06:
+      return 1.0;
+  case 0x5b:
+      return 2.0;
+  case 0x4f:
+      return 3.0;
+  case 0x66:
+      return 4.0;
+  case 0x6d:
+      return 5.0;
+  case 0x7c:
+      return 6.0;
+  case 0x07:
+      return 7.0;
+  case 0x7f:
+      return 8.0;
+  case 0x6f:
+      return 9.0;
   }
 }
 }
