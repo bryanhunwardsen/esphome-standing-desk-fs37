@@ -1,6 +1,7 @@
 external_components:
   - source: github://bryanhunwardsen/esphome-standing-desk-fs37
     components: [ standing_desk_height ]
+    refresh: 0s
 
 substitutions:
   desk_height_name: "Desk Height"
