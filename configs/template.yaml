@@ -1,5 +1,5 @@
 external_components:
-  - source: github://tjhorner/esphome-standing-desk
+  - source: github://bryanhunwardsen/esphome-standing-desk-fs37
     components: [ standing_desk_height ]
 
 substitutions:
