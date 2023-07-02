@@ -13,7 +13,7 @@ bool FlexiSpotE7Decoder::put(uint8_t b) {
       state_ = LENGTH;
       return false;
     } else {
-      state_ = SYNC1;
+      state_ = START;
       return false;
     }
   case LENGTH:
@@ -44,7 +44,7 @@ bool FlexiSpotE7Decoder::put(uint8_t b) {
     }
   case HEIGHT2:
     // (0-9 w/ Decimal Point ONES)
-    b = (b ^ 0x80)
+    b = (b ^ 0x80);
     if (b == 0x3f || b == 0x06 || b == 0x5b || b == 0x4f || b == 0x66 ||
         b == 0x6d || b == 0x7c || b == 0x07 || b == 0x7f || b == 0x6f) {
     buf_[1] = DecodeDigit(b);
@@ -79,6 +79,7 @@ bool FlexiSpotE7Decoder::put(uint8_t b) {
     return false;
   }
   return false;
+  }
 }
 
 float FlexiSpotE7Decoder::decode() {  
