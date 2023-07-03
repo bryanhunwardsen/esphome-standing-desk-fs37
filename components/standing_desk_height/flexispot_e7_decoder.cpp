@@ -85,7 +85,15 @@ float FlexiSpotE7Decoder::decode() {
   float height = ((buf_[0] * 10) + buf_[1] + (buf_[2] / 10.0));
   char height_buffer[10];
   int ret = snprintf(height_buffer, sizeof height_buffer, "%f", height);
-  ESP_LOGV("FELXISPOT E7 DECODER", height_buffer);
+  if ((buf_[0] == 0x5b) and (buf_[1] == 0x4f) and (buf_[2] == 0x7c))
+  {
+    ESP_LOGV("FELXISPOT E7 DECODER", "23.6");
+  }
+  else if ((buf_[0] == 0x5b) and (buf_[1] == 0x4f) and (buf_[2] == 0x07))
+  {
+    ESP_LOGV("FELXISPOT E7 DECODER", "23.7");
+  }
+  
   return height;
 }
 
