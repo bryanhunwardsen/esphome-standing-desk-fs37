@@ -12,6 +12,10 @@ uart:
   id: standing_desk_uart
   rx_pin: ${standing_desk_uart_rx_pin}
   baud_rate: 9600
+  debug:
+    <<: &uart_debug
+    sequence:
+      - lambda: UARTDebug::log_hex(uart::UART_DIRECTION_RX, bytes, ':');
 
 sensor:
   - platform: standing_desk_height
