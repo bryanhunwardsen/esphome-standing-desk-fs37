@@ -1,7 +1,7 @@
 #pragma once
 
 #include <stdint.h>
-#include "esphome/core/component.h"
+#include "esphome/core/log.h"
 #include "decoder.h"
 
 namespace esphome {
