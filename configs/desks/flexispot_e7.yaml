@@ -1,5 +1,5 @@
 substitutions:
-  standing_desk_uart_rx_pin: "17"
+  standing_desk_uart_rx_pin: "16"
   standing_desk_up_pin: "21"
   standing_desk_down_pin: "22"
   standing_desk_variant: "flexispot_e7"
