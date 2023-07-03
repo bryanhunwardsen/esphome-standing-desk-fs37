@@ -3,7 +3,6 @@
 #include <stdint.h>
 #include "esphome/core/log.h"
 #include "decoder.h"
-#include <string>
 
 namespace esphome {
 namespace standing_desk_height {

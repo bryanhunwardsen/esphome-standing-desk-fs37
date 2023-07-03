@@ -83,8 +83,9 @@ bool FlexiSpotE7Decoder::put(uint8_t b) {
 
 float FlexiSpotE7Decoder::decode() {  
   float height = ((buf_[0] * 10) + buf_[1] + (buf_[2] / 10.0));
-  string logVal = to_string(height);
-  ESP_LOGV("FELXISPOT E7 DECODER", logVal);
+  char height_buffer[10];
+  int ret = snprintf(height_buffer, "%f", height);
+  ESP_LOGV("FELXISPOT E7 DECODER", height_buffer);
   return height;
 }
 
